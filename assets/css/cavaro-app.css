@@ -1,0 +1,176 @@
+/* ==========================================================================
+   CAVARO — functional additions
+   --------------------------------------------------------------------------
+   Everything in this file exists only because a control in the Stitch design
+   had to become usable (quantity stepper, empty bag, mobile menu). Each rule
+   borrows the design's own language: Manrope caps, 0.2em tracking, square
+   1px outlines, and the existing token palette. No new colours, no new type.
+   ========================================================================== */
+
+/* --- mobile navigation: stacks the same links the desktop bar uses ------- */
+.nav-panel {
+	display: none;
+}
+@media (max-width: 767px) {
+	body.nav-open .nav-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+		position: absolute;
+		top: 80px;
+		left: 0;
+		right: 0;
+		padding: 26px var(--space-gutter) 30px;
+		background-color: rgba(20, 19, 14, 0.97);
+		-webkit-backdrop-filter: blur(12px);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid rgba(198, 161, 91, 0.4);
+	}
+	body.nav-open .nav-panel > * {
+		margin-left: 0;
+	}
+}
+
+/* --- shopping bag: quantity stepper ------------------------------------- */
+.bag-qty {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 10px;
+}
+.bag-qty__label {
+	font-family: var(--font-sans);
+	font-size: 10px;
+	line-height: 16px;
+	letter-spacing: 0.2em;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: var(--outline-variant);
+}
+.bag-qty__btn {
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-sans);
+	font-size: 12px;
+	line-height: 1;
+	color: var(--outline);
+	border: 1px solid rgba(76, 70, 64, 0.6);
+	transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.bag-qty__btn:hover {
+	color: var(--secondary);
+	border-color: rgba(233, 193, 120, 0.4);
+}
+.bag-qty__value {
+	min-width: 16px;
+	text-align: center;
+	font-family: var(--font-sans);
+	font-size: 11px;
+	line-height: 16px;
+	letter-spacing: 0.15em;
+	color: var(--on-surface-variant);
+}
+
+/* --- shopping bag: empty state ------------------------------------------ */
+.bag-empty {
+	padding: 56px 0;
+	text-align: center;
+}
+.bag-empty__title {
+	font-family: var(--font-sans);
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.15em;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: var(--on-surface-variant);
+}
+.bag-empty__note {
+	margin-top: 12px;
+	font-family: var(--font-sans);
+	font-size: 12px;
+	line-height: 18px;
+	color: var(--outline);
+}
+
+/* --- shopping bag: continue shopping ------------------------------------ */
+.bag-continue {
+	display: block;
+	width: 100%;
+	margin-top: 14px;
+	padding: 12px 0;
+	text-align: center;
+	font-family: var(--font-sans);
+	font-size: 10px;
+	line-height: 16px;
+	letter-spacing: 0.2em;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: var(--outline);
+	background-color: transparent;
+	transition: color 0.3s ease-in-out;
+}
+.bag-continue:hover {
+	color: var(--secondary);
+}
+
+/* --- one continuous page: smooth scrolling and section offsets ----------- */
+html {
+	scroll-behavior: smooth;
+}
+[data-section] {
+	scroll-margin-top: 80px;
+}
+#hero,
+#age {
+	scroll-margin-top: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* --- age verification: the entry screen of the same page ----------------- */
+.cavaro-gate {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	background-color: #0b0907;
+	overflow: hidden;
+	transition: opacity 0.7s ease-in-out;
+}
+.cavaro-gate.is-closing {
+	opacity: 0;
+	pointer-events: none;
+}
+.cavaro-gate.is-hidden,
+html.gate-verified .cavaro-gate {
+	display: none;
+}
+body.gate-open {
+	overflow: hidden;
+}
+
+/* --- shopping bag: the same drawer, opened over the page ----------------- */
+.cavaro-bag {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	visibility: hidden;
+	pointer-events: none;
+}
+.cavaro-bag.is-open {
+	visibility: visible;
+	pointer-events: auto;
+}
+body.bag-open {
+	overflow: hidden;
+}
+
+html {
+	background-color: #14130e;
+}

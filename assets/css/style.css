@@ -1,0 +1,280 @@
+body {
+    margin: 0;
+    background-color: #0B0907;
+    color: #e7e2d9;
+    overflow-x: hidden;
+}
+
+/* =========================
+       Background / Smoke
+    ========================= */
+.cigar-smoke-gradient {
+    background: radial-gradient(circle at 50% 50%,
+            rgba(36, 22, 15, 0.4) 0%,
+            rgba(11, 9, 7, 0.9) 70%,
+            #0B0907 100%);
+}
+
+.smoke-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center,
+            transparent 0%,
+            #0B0907 100%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* =========================
+       Gold Colors
+    ========================= */
+.text-gold {
+    color: #C6A15B;
+}
+
+.bg-gold {
+    background-color: #C6A15B;
+}
+
+.border-gold-subtle {
+    border-color: rgba(198, 161, 91, 0.4);
+}
+
+.gold-rule {
+    border-color: rgba(198, 161, 91, 0.4);
+}
+
+.gold-rule-bottom {
+    border-bottom: 1px solid rgba(198, 161, 91, 0.4);
+}
+
+.gold-rule-top {
+    border-top: 1px solid rgba(198, 161, 91, 0.4);
+}
+
+.gold-line {
+    width: 1px;
+    background-color: rgba(198, 161, 91, 0.4);
+}
+
+.gold-line-horizontal {
+    height: 1px;
+    background-color: rgba(198, 161, 91, 0.4);
+}
+
+/* =========================
+       Hover Underline
+    ========================= */
+.hover-underline-reveal,
+.hover-gold-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-underline-reveal::after,
+.hover-gold-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    left: 50%;
+    bottom: -4px;
+    background-color: #C6A15B;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+.hover-gold-underline::after {
+    bottom: -2px;
+    transition: all 0.5s ease;
+}
+
+.hover-underline-reveal:hover::after,
+.hover-gold-underline:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* =========================
+       Reveal Line
+    ========================= */
+.reveal-line {
+    position: relative;
+}
+
+.reveal-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #C6A15B;
+    transition: width 0.5s ease-in-out;
+}
+
+.group:hover .reveal-line::after {
+    width: 100%;
+}
+
+/* =========================
+       Ghost Button
+    ========================= */
+.btn-ghost {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: #e7e2d9;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-ghost::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: #C6A15B;
+    transition: all 0.4s ease-out;
+}
+
+.btn-ghost:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* =========================
+       Reveal Button
+    ========================= */
+.reveal-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: #C6A15B;
+    transition: all 0.5s ease;
+    transform: translateX(-50%);
+}
+
+.reveal-btn:hover::after {
+    width: 100%;
+}
+
+/* =========================
+       Hero Animation
+    ========================= */
+.hero-float {
+    animation: subtleFloat 8s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+       Fade In Animation
+    ========================= */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+}
+
+.delay-3 {
+    animation-delay: 1.5s;
+}
+
+/* =========================
+       Slide Animation
+    ========================= */
+.slide-in-right {
+    animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* =========================
+       Select
+    ========================= */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e9c178' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    background-size: 1.5em;
+}
+
+/* =========================
+       Floating Labels
+    ========================= */
+.peer:focus~label,
+.peer:not(:placeholder-shown)~label {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: #e9c178;
+}
+
+/* =========================
+       Scrollbar
+    ========================= */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4c4640;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #978f88;
+}

@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CAVARO - The Art of the Leaf</title>
+    <link href="assets/css/cavaro-ui.css" rel="stylesheet" />
+    <link href="assets/css/cavaro-app.css" rel="stylesheet" />
+    <link href="assets/css/smoke.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Manrope:wght@200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script>
+        try {
+            if (window.localStorage.getItem('cavaro:age-verified:v2') === '1') {
+                document.documentElement.className += ' gate-verified';
+            }
+        } catch (e) { }
+    </script>
+</head>
+
+<body class="bg-background text-on-background font-body-lg">
+    <div class="cavaro-gate text-on-background min-h-screen flex flex-col justify-center items-center relative"
+        data-gate="" id="age">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="w-full h-full bg-cover bg-center mix-blend-screen"
+                data-alt="A moody, high-grain editorial photograph of swirling smoke illuminated by a single spotlight against a deep black background, evoking the atmosphere of an exclusive cigar lounge. Soft, antique gold highlights glint in the shadows. Minimalist and cinematic."
+                style='background-image: url("assets/img/photos/cinematic-bg-wisps.png")'></div>
+        </div>
+        <div class="smoke-overlay"></div>
+        <div class="absolute top-0 bottom-0 left-margin-edge gold-line z-10 hidden md:block"></div>
+        <div class="absolute top-0 bottom-0 right-margin-edge gold-line z-10 hidden md:block"></div>
+        <div
+            class="relative z-20 flex flex-col items-center justify-center max-w-xl mx-auto px-gutter text-center w-full">
+            <!-- Logo / Branding -->
+            <div class="mb-gutter fade-in-up">
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-surface">
+                    CAVARO</h1>
+                <div class="w-16 gold-line-horizontal mx-auto mt-8 mb-4"></div>
+            </div>
+            <!-- Headline & Message -->
+            <div class="mb-section-gap fade-in-up delay-1">
+                <h2 class="font-headline-sm text-headline-sm mb-6 text-on-surface">WELCOME TO CAVARO</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">
+                    You must be of legal smoking age in your country to enter.
+                </p>
+            </div>
+            <!-- Action Buttons -->
+            <div class="flex flex-col md:flex-row gap-6 w-full justify-center items-center fade-in-up delay-2">
+                <button
+                    class="w-full md:w-48 py-4 border border-secondary/40 text-on-surface font-label-caps text-label-caps tracking-widest hover:bg-secondary/10 transition-colors duration-500 reveal-btn"
+                    data-age-enter="">
+                    ENTER
+                </button>
+                <button
+                    class="w-full md:w-48 py-4 text-on-surface-variant font-label-caps text-label-caps tracking-widest opacity-60 hover:opacity-100 transition-opacity duration-500 reveal-btn"
+                    data-age-exit="">
+                    EXIT
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-margin-edge w-full text-center z-20 fade-in-up delay-3 hidden md:block">
+            <p class="font-caption text-caption text-on-surface-variant/40 tracking-[0.2em] uppercase">
+                © 2024 CAVARO LUXURY. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </div>
+    <!-- TopNavBar Shared Component -->
+    <nav
+        class="bg-background/95 dark:bg-background/95 fixed top-0 w-full z-50 border-b border-outline-variant/40 transition-all duration-300 ease-in-out">
+        <div class="flex justify-between items-center px-margin-edge py-unit max-w-container-max mx-auto h-[80px]">
+            <div class="flex-shrink-0 flex justify-center flex-1 md:flex-none">
+                <a class="font-display-lg text-headline-sm tracking-tighter text-on-background hover:text-secondary transition-colors duration-500 "
+                    style="padding-right: 50px;" data-nav-home="" href="#hero">CAVARO</a>
+            </div>
+            <!-- Links (Left) -->
+            <div class="hidden md:flex space-x-[48px] flex-1" data-nav-links="">
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500 hover-underline-reveal"
+                    data-nav-target="#collection" href="#collection">COLLECTION</a>
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500 hover-underline-reveal"
+                    data-nav-target="#story" href="#story">OUR STORY</a>
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500 hover-underline-reveal"
+                    data-nav-target="#craft" href="#craft">CRAFT</a>
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500 hover-underline-reveal"
+                    data-nav-target="#journal" href="#journal">JOURNAL</a>
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500 hover-underline-reveal"
+                    data-nav-target="#contact" href="#contact">CONTACT</a>
+            </div><button aria-label="Menu"
+                class="md:hidden text-primary hover:text-secondary transition-colors duration-500 cursor-pointer"
+                data-nav-toggle=""><span class="material-symbols-outlined" data-icon="menu"
+                    style="font-variation-settings: 'FILL' 0;">menu</span></button>
+            <!-- Brand Logo (Center) -->
+
+            <!-- Trailing Icons (Right) -->
+            <div class="flex justify-end items-center space-x-[24px] flex-1">
+                <button aria-label="Open your bag"
+                    class="text-primary dark:text-primary hover:text-secondary transition-colors duration-500 focus:outline-none cursor-pointer"
+                    data-bag-open="">
+                    <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero Section -->
+        <!-- Editorial Introduction Section -->
+        <!-- Craftsmanship Section (Bento Grid Inspiration) -->
+        <section class="relative h-screen w-full flex items-center bg-primary-container overflow-hidden pt-[80px]"
+            data-section="hero" id="hero">
+            <!-- Background Image Container -->
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-cover bg-center w-full h-full object-cover"
+                    data-alt="A lit CAVARO cigar resting on a heavy crystal ashtray, the ember glowing red against a dark polished wood table, warm localized golden light, dark editorial luxury photography."
+                    style='background-image: url("assets/img/photos/hero-cigar-ember.png")'></div>
+                <!-- Gradient Overlay for Depth and Text Legibility -->
+                <div class="absolute inset-0 cigar-smoke-gradient mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-primary-container/40"></div>
+            </div>
+            <!-- Content Container -->
+            <div
+                class="relative z-10 w-full max-w-container-max mx-auto px-margin-edge grid grid-cols-12 gap-gutter h-full pb-section-gap pt-[120px]">
+                <!-- Typography Asymmetry -->
+                <div class="col-span-12 md:col-span-8 md:col-start-1 flex flex-col justify-end pb-[10vh] hero-float">
+                    <h1
+                        class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background leading-none uppercase mix-blend-screen opacity-95">
+                        <span class="block">THE ART</span>
+                        <span class="block ml-[10vw] text-secondary/90 italic">OF THE LEAF</span>
+                    </h1>
+                </div>
+                <!-- CTA Placement -->
+                <div class="col-span-12 md:col-span-4 md:col-start-9 flex items-end justify-end pb-[10vh]">
+                    <button
+                        class="bg-secondary text-primary-container font-label-caps text-label-caps px-[32px] py-[16px] rounded-none hover:bg-secondary-fixed transition-colors duration-500 uppercase tracking-widest border border-secondary cursor-pointer"
+                        data-href="#collection">
+                        EXPLORE THE COLLECTION
+                    </button>
+                </div>
+            </div>
+            <!-- Bottom Gold Rule -->
+            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-secondary/40"></div>
+            <div aria-hidden="true" class="cavaro-smoke" data-smoke="">
+                <div class="cavaro-smoke__layer cavaro-smoke__layer--1"><span class="cavaro-smoke__drift"><span
+                            class="cavaro-smoke__plume"></span></span></div>
+                <div class="cavaro-smoke__layer cavaro-smoke__layer--2"><span class="cavaro-smoke__drift"><span
+                            class="cavaro-smoke__plume"></span></span></div>
+                <div class="cavaro-smoke__layer cavaro-smoke__layer--3"><span class="cavaro-smoke__drift"><span
+                            class="cavaro-smoke__plume"></span></span></div>
+                <div class="cavaro-smoke__layer cavaro-smoke__layer--4"><span class="cavaro-smoke__drift"><span
+                            class="cavaro-smoke__plume"></span></span></div>
+                <div class="cavaro-smoke__layer cavaro-smoke__layer--5"><span class="cavaro-smoke__drift"><span
+                            class="cavaro-smoke__plume"></span></span></div>
+            </div>
+        </section>
+        <section class="w-full max-w-container-max mx-auto px-margin-edge py-section-gap relative"
+            data-section="introduction" id="introduction">
+            <div class="grid grid-cols-12 gap-gutter items-center">
+                <!-- Label + Photograph Column -->
+                <div
+                    class="col-span-12 md:col-span-4 md:pr-[48px] md:border-r md:border-outline-variant/40 mb-12 md:mb-0">
+                    <h2
+                        class="hidden md:block font-label-caps text-label-caps tracking-[0.2em] text-outline uppercase opacity-60 mb-8">
+                        THE CAVARO PHILOSOPHY</h2>
+                    <div class="group relative w-full aspect-[4/3] overflow-hidden bg-smoke">
+                        <img alt="A single Connecticut shade cigar resting on a pale, softly lit surface."
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            data-alt="A single Cavaro Connecticut shade cigar photographed on a clean, bright surface, the band turned just enough to read. Soft daylight, no shadows, no styling: the leaf on its own terms."
+                            decoding="async" loading="lazy" src="assets/img/photos/intro-cigar-connecticut.png" />
+                    </div>
+                </div>
+                <!-- Main Content Column -->
+                <div class="col-span-12 md:col-span-8 md:pl-[64px]">
+                    <!-- Mobile Label -->
+                    <h2
+                        class="md:hidden font-label-caps text-label-caps tracking-widest text-outline uppercase mb-8 gold-rule-bottom pb-4 inline-block">
+                        THE CAVARO PHILOSOPHY</h2>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-12 max-w-[800px] leading-tight">
+                        Great cigars are <span class="italic text-secondary/80">not made</span> in a hurry.
+                    </h3>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-12 text-on-surface-variant font-body-lg text-body-lg">
+                        <p>
+                            Time is the ultimate luxury. In the shadows of our curing barns, raw nature is patiently
+                            coaxed into an exquisite experience. We reject the frenetic pace of the modern world,
+                            embracing instead the methodical, silent art of maturation.
+                        </p>
+                        <p>
+                            Every leaf selected by Cavaro represents a deliberate choice. A choice to wait. A choice to
+                            blend only when the tobaccos have achieved perfect harmony, whispering their complex
+                            narratives to those willing to listen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="max-w-container-max mx-auto px-gutter md:px-margin-edge py-section-gap"
+            data-section="collection" id="collection">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24">
+                <div>
+                    <h2 class="font-display-lg text-headline-md text-on-background mb-4">THE COLLECTION</h2>
+                    <p class="font-body-lg text-on-surface-variant max-w-lg">Curated vitolas representing the pinnacle
+                        of European-inspired tobacco craftsmanship.</p>
+                </div>
+                <div class="mt-8 md:mt-0 font-label-caps text-caption tracking-widest text-on-surface-variant border-b border-gold-subtle pb-2 flex gap-8"
+                    data-filter-active-class="text-gold cursor-pointer"
+                    data-filter-idle-class="cursor-pointer hover:text-on-background transition-colors"
+                    data-filter-scope="">
+                    <span class="text-gold cursor-pointer" data-filter="all" role="button" tabindex="0">ALL</span>
+                    <span class="cursor-pointer hover:text-on-background transition-colors" data-filter="reserve"
+                        role="button" tabindex="0">RESERVE</span>
+                    <span class="cursor-pointer hover:text-on-background transition-colors" data-filter="classic"
+                        role="button" tabindex="0">CLASSIC</span>
+                </div>
+            </div>
+            <!-- 3 Column Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-24">
+                <!-- Product 1 -->
+                <div class="group flex flex-col" data-category="reserve" data-product-card="cavaro-reserve">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt=""
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0 cursor-pointer"
+                            data-alt="A minimalist, high-end editorial shot of a single CAVARO RESERVE cigar standing upright against a pure, deep charcoal background. The lighting is singular and harsh, creating dramatic shadows and highlighting the rich, dark texture of the wrapper leaf. A subtle wisp of elegant smoke drifts near the top. The aesthetic is stark, moody, and deeply luxurious."
+                            data-href="#reserve-detail" decoding="async" loading="lazy"
+                            src="assets/img/photos/cigar-vertical.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background cursor-pointer"
+                            data-href="#reserve-detail">CAVARO RESERVE</h3>
+                        <span class="font-label-caps text-label-caps text-gold">$45</span>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>FORMAT</span>
+                            <span>TORO (6 x 52)</span>
+                        </div>
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>ORIGIN</span>
+                            <span>DOMINICAN REPUBLIC</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full font-label-caps text-label-caps tracking-widest text-on-background border border-gold-subtle py-4 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
+                        data-add-to-bag="cavaro-reserve">
+                        ADD TO HUMIDOR
+                    </button>
+                </div>
+                <!-- Product 2 -->
+                <div class="group flex flex-col md:mt-16" data-category="classic"
+                    data-product-card="the-humidor-select">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt=""
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            data-alt="A top-down, minimalist editorial photograph of THE HUMIDOR SELECT cigar resting diagonally across a beautiful, highly polished dark walnut surface. The lighting is soft but directional, creating long shadows and emphasizing the flawless, medium-brown shade grown wrapper. The aesthetic is silent, structured, and evocative of an old-world gentleman's club."
+                            decoding="async" loading="lazy" src="assets/img/photos/humidor-open.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">THE HUMIDOR SELECT</h3>
+                        <span class="font-label-caps text-label-caps text-gold">$32</span>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>FORMAT</span>
+                            <span>ROBUSTO (5 x 50)</span>
+                        </div>
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>ORIGIN</span>
+                            <span>NICARAGUA</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full font-label-caps text-label-caps tracking-widest text-on-background border border-gold-subtle py-4 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
+                        data-add-to-bag="the-humidor-select">
+                        ADD TO HUMIDOR
+                    </button>
+                </div>
+                <!-- Product 3 -->
+                <div class="group flex flex-col" data-category="classic" data-product-card="vintage-1924">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt=""
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            data-alt="A close-up, highly detailed shot of the VINTAGE 1924 cigar resting on vintage, slightly charred parchment paper. The focus is incredibly sharp on the ash and the burning ember, glowing intensely orange against the deep black surrounding space. The mood is dark, historical, and emphasizes the tactile quality of the burning tobacco and paper."
+                            decoding="async" loading="lazy" src="assets/img/photos/churchill.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">VINTAGE 1924</h3>
+                        <span class="font-label-caps text-label-caps text-gold">$55</span>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>FORMAT</span>
+                            <span>CHURCHILL (7 x 48)</span>
+                        </div>
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>ORIGIN</span>
+                            <span>HONDURAS</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full font-label-caps text-label-caps tracking-widest text-on-background border border-gold-subtle py-4 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
+                        data-add-to-bag="vintage-1924">
+                        ADD TO HUMIDOR
+                    </button>
+                </div>
+                <!-- Product 4 -->
+                <div class="group flex flex-col md:mt-16" data-category="classic" data-product-card="vintage-1924">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt="A premium, professionally lit studio photograph of a Churchill-sized cigar resting on a dark, polished wood surface."
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            data-alt="A dark editorial still life of an aged Churchill cigar beside an obsidian cutter on textured stone, lit by a single hard light."
+                            decoding="async" loading="lazy" src="assets/img/photos/cigar-cutter.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">VINTAGE 1924</h3>
+                        <span class="font-label-caps text-label-caps text-gold">$55</span>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>FORMAT</span>
+                            <span>CHURCHILL (7 x 48)</span>
+                        </div>
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>ORIGIN</span>
+                            <span>HONDURAS</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full font-label-caps text-label-caps tracking-widest text-on-background border border-gold-subtle py-4 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
+                        data-add-to-bag="vintage-1924">
+                        ADD TO HUMIDOR
+                    </button>
+                </div>
+                <!-- Product 5 -->
+                <div class="group flex flex-col" data-category="classic" data-product-card="the-matriarch">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt="A premium, professionally lit studio photograph of a thick Robusto cigar with a dark, oily wrapper."
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            decoding="async" loading="lazy" src="assets/img/photos/robusto.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">THE MATRIARCH</h3>
+                        <span class="font-label-caps text-label-caps text-gold">$32</span>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>FORMAT</span>
+                            <span>ROBUSTO (5 x 50)</span>
+                        </div>
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>ORIGIN</span>
+                            <span>NICARAGUA</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full font-label-caps text-label-caps tracking-widest text-on-background border border-gold-subtle py-4 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
+                        data-add-to-bag="the-matriarch">
+                        ADD TO HUMIDOR
+                    </button>
+                </div>
+                <!-- Product 6 -->
+                <div class="group flex flex-col md:mt-16" data-category="classic" data-product-card="the-panatela">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt="A premium, professionally lit studio photograph of a slender Panatela cigar with a light Connecticut wrapper."
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            decoding="async" loading="lazy" src="assets/img/photos/panatela.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">THE PANATELA</h3>
+                        <span class="font-label-caps text-label-caps text-gold">$28</span>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>FORMAT</span>
+                            <span>PANATELA (6 x 38)</span>
+                        </div>
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>ORIGIN</span>
+                            <span>DOMINICAN REPUBLIC</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full font-label-caps text-label-caps tracking-widest text-on-background border border-gold-subtle py-4 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
+                        data-add-to-bag="the-panatela">
+                        ADD TO HUMIDOR
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section
+            class="w-full min-h-[819px] flex flex-col md:flex-row items-stretch border-b border-gold-subtle relative overflow-hidden"
+            data-section="featured" id="featured">
+            <!-- Image Left -->
+            <div class="w-full md:w-1/2 h-[512px] md:h-auto relative bg-smoke">
+                <img alt=""
+                    class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity grayscale hover:grayscale-0 transition-all duration-1000"
+                    data-alt="A macro, highly detailed editorial photograph of a premium, aged cigar resting on dark, textured slate. The rich, dark brown tobacco wrapper is illuminated by a dramatic, high-contrast spotlight that highlights its oily sheen and intricate veins. Thick, moody smoke swirls elegantly in the negative space. The atmosphere is luxurious, silent, and deeply atmospheric, adhering to a minimalist dark editorial aesthetic with deep blacks and rich earth tones."
+                    decoding="async" loading="lazy" src="assets/img/photos/cigar-ashtray.png" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent pointer-events-none md:hidden">
+                </div>
+            </div>
+            <!-- Content Right -->
+            <div
+                class="w-full md:w-1/2 flex flex-col justify-center px-gutter md:px-margin-edge py-16 md:py-0 bg-background relative z-10">
+                <div class="max-w-md">
+                    <span
+                        class="font-label-caps text-label-caps text-gold tracking-widest mb-4 block uppercase">Featured
+                        Release</span>
+                    <h1
+                        class="font-display-lg md:text-display-lg text-display-lg-mobile text-on-background mb-8 leading-tight">
+                        CAVARO RESERVE</h1>
+                    <div class="border-t border-b border-gold-subtle py-6 mb-10 space-y-4">
+                        <div class="flex justify-between font-label-caps text-caption text-on-surface-variant">
+                            <span>WRAPPER</span>
+                            <span class="text-on-background">12-YEAR AGED MADURO</span>
+                        </div>
+                        <div class="flex justify-between font-label-caps text-caption text-on-surface-variant">
+                            <span>ORIGIN</span>
+                            <span class="text-on-background">DOMINICAN REPUBLIC</span>
+                        </div>
+                        <div class="flex justify-between font-label-caps text-caption text-on-surface-variant">
+                            <span>STRENGTH</span>
+                            <span class="text-on-background">FULL</span>
+                        </div>
+                    </div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 font-light">
+                        A masterclass in patience. The Reserve is rolled with leaves aged for over a decade in
+                        cedar-lined vaults, offering notes of dark cocoa, espresso, and aged leather. Extremely limited
+                        allocation.
+                    </p>
+                    <button
+                        class="bg-gold text-charcoal font-label-caps text-label-caps tracking-widest px-8 py-4 uppercase hover:bg-white transition-colors duration-500 cursor-pointer"
+                        data-href="#reserve-detail">
+                        DISCOVER RESERVE
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-margin-edge py-section-gap max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                <!-- Left Column: Specs & Origin -->
+                <div class="lg:col-span-4 flex flex-col space-y-gutter">
+                    <!-- Technical Specs -->
+                    <div>
+                        <h2
+                            class="font-label-caps text-label-caps text-gold tracking-widest mb-unit uppercase flex items-center">
+                            <span class="w-8 h-px bg-gold mr-4 opacity-50"></span>
+                            01. Specifications
+                        </h2>
+                        <ul class="space-y-4 border-l border-outline-variant/40 pl-6 mt-6">
+                            <li>
+                                <span
+                                    class="font-label-caps text-label-caps text-on-surface-variant block uppercase text-[10px]">Wrapper</span>
+                                <span class="font-body-md text-body-md text-on-surface">12-year aged Maduro</span>
+                            </li>
+                            <li>
+                                <span
+                                    class="font-label-caps text-label-caps text-on-surface-variant block uppercase text-[10px]">Origin</span>
+                                <span class="font-body-md text-body-md text-on-surface">Dominican Republic</span>
+                            </li>
+                            <li>
+                                <span
+                                    class="font-label-caps text-label-caps text-on-surface-variant block uppercase text-[10px]">Strength</span>
+                                <span class="font-body-md text-body-md text-on-surface">Full</span>
+                            </li>
+                            <li>
+                                <span
+                                    class="font-label-caps text-label-caps text-on-surface-variant block uppercase text-[10px]">Format</span>
+                                <span class="font-body-md text-body-md text-on-surface">Toro 6 x 52</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Center/Right Column: Narrative & Action -->
+                <div class="lg:col-span-7 lg:col-start-6 flex flex-col justify-between">
+                    <div class="space-y-gutter mb-gutter lg:mb-0">
+                        <!-- Flavor Notes -->
+                        <div class="border-t gold-rule pt-8">
+                            <h2 class="font-label-caps text-label-caps text-gold tracking-widest mb-unit uppercase">02.
+                                Profile</h2>
+                            <p class="font-headline-md text-headline-md text-on-surface leading-tight mt-6">
+                                Notes of dark cocoa, espresso, and aged leather.
+                            </p>
+                        </div>
+                        <!-- Origin Details -->
+                        <div class="border-t gold-rule pt-8 flex">
+                            <div class="w-1/3">
+                                <h2 class="font-label-caps text-label-caps text-gold tracking-widest uppercase">03.
+                                    Origin</h2>
+                            </div>
+                            <div class="w-2/3">
+                                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                                    Cultivated in the rich, volcanic soils of the Cibao Valley, the Cavaro Reserve
+                                    represents the pinnacle of our agricultural dedication. Following harvest, the
+                                    tobacco undergoes a rigorous decade-long aging process in cedar-lined chambers,
+                                    allowing the natural oils to mature and intertwine, resulting in unparalleled depth
+                                    and complexity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pricing & Action -->
+                    <div class="flex items-center justify-between border-t border-b gold-rule py-6 mt-16">
+                        <div class="font-headline-sm text-headline-sm text-on-surface tracking-widest">
+                            $45.00
+                        </div>
+                        <button
+                            class="bg-gold text-primary-container px-8 py-4 font-label-caps text-label-caps tracking-widest uppercase hover:bg-opacity-90 transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-gold focus:ring-offset-2 focus:ring-offset-primary-container"
+                            data-add-to-bag="cavaro-reserve">
+                            ADD TO HUMIDOR
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full bg-[#24160F] border-y border-secondary/20 relative py-[120px]" data-section="craft"
+            id="craft">
+            <div class="max-w-container-max mx-auto px-margin-edge">
+                <div class="text-center mb-[80px]">
+                    <h2
+                        class="font-display-lg text-headline-md md:text-display-lg text-on-background uppercase tracking-tight">
+                        FROM LEAF TO LEGACY</h2>
+                    <div class="w-[40px] h-[1px] bg-secondary/60 mx-auto mt-8"></div>
+                </div>
+                <!-- Asymmetric Bento Grid -->
+                <div class="grid grid-cols-12 grid-rows-[auto_auto] gap-gutter h-auto min-h-[800px]">
+                    <!-- The Leaf (Large Feature) -->
+                    <div
+                        class="col-span-12 md:col-span-7 row-span-2 group relative overflow-hidden bg-primary-container gold-rule-top">
+                        <div class="absolute inset-0 bg-cover bg-center w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 grayscale group-hover:grayscale-0"
+                            data-alt="Close up dramatic editorial photography of aged, dark brown tobacco leaves resting on a weathered wooden table. The lighting is extremely moody and directional, casting long shadows and highlighting the deep veins and oily sheen of the leaves. High contrast, minimalistic, European luxury aesthetic."
+                            style='background-image: url("assets/img/photos/tobacco-field.png")'></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0907] via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-[48px] w-full">
+                            <span
+                                class="font-label-caps text-label-caps tracking-widest text-secondary uppercase mb-4 block">01
+                                / THE LEAF</span>
+                            <h3 class="font-headline-sm text-headline-sm text-on-background mb-4">Sourced from the
+                                darkest soil.</h3>
+                            <button class="btn-ghost font-label-caps text-label-caps tracking-widest cursor-pointer"
+                                data-href="#collection">DISCOVER ORIGINS</button>
+                        </div>
+                    </div>
+                    <!-- The Blend (Top Right) -->
+                    <div
+                        class="col-span-12 md:col-span-5 row-span-1 group relative overflow-hidden bg-primary-container border-l border-b border-outline-variant/20">
+                        <div class="absolute inset-0 bg-cover bg-center w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-700 grayscale group-hover:grayscale-0"
+                            data-alt="Moody, minimalist shot of hands in shadow carefully mixing shredded dark tobacco blends in an antique brass bowl. Low key lighting, high contrast between the deep blacks of the background and the warm golden tones reflecting off the brass. Evokes patience and craftsmanship."
+                            style='background-image: url("assets/img/photos/blender-hands.png")'></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-[#0B0907] via-transparent to-transparent">
+                        </div>
+                        <div class="relative z-10 p-[32px] h-full flex flex-col justify-end">
+                            <span
+                                class="font-label-caps text-label-caps tracking-widest text-secondary uppercase mb-2 block">02
+                                / THE BLEND</span>
+                            <h3 class="font-headline-sm text-[20px] text-on-background mb-6 leading-snug">The alchemy of
+                                shadow and smoke.</h3>
+                        </div>
+                    </div>
+                    <!-- The Roll (Bottom Right) -->
+                    <div
+                        class="col-span-12 md:col-span-5 row-span-1 group relative overflow-hidden bg-primary-container border-l border-outline-variant/20">
+                        <div class="absolute inset-0 bg-cover bg-center w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-700 grayscale group-hover:grayscale-0"
+                            data-alt="Macro photography of a master roller's weathered hands wrapping the final dark maduro wrapper leaf around a cigar. The image is tight, focused on texture and tactile quality. Extremely dark background, lit by a single warm spotlight. Pure editorial minimalism."
+                            style='background-image: url("assets/img/photos/rolling-by-hand.png")'></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-[#0B0907] via-transparent to-transparent">
+                        </div>
+                        <div class="relative z-10 p-[32px] h-full flex flex-col justify-end">
+                            <span
+                                class="font-label-caps text-label-caps tracking-widest text-secondary uppercase mb-2 block">03
+                                / THE ROLL</span>
+                            <h3 class="font-headline-sm text-[20px] text-on-background mb-6 leading-snug">Bound by
+                                tension, finished with grace.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="w-full min-h-[819px] flex flex-col md:flex-row items-stretch border-b border-gold-subtle relative overflow-hidden"
+            data-section="story" id="story">
+            <!-- Image Left -->
+            <div class="w-full md:w-1/2 h-[512px] md:h-auto relative bg-smoke">
+                <img alt=""
+                    class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity grayscale hover:grayscale-0 transition-all duration-1000"
+                    data-alt="The interior of a Cavaro lounge: leather club chairs, dark wood panelling and low lamplight."
+                    decoding="async" loading="lazy" src="assets/img/photos/lounge-interior.png" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent pointer-events-none md:hidden">
+                </div>
+            </div>
+            <!-- Content Right -->
+            <div
+                class="w-full md:w-1/2 flex flex-col justify-center px-gutter md:px-margin-edge py-16 md:py-0 bg-background relative z-10">
+                <div class="max-w-md">
+                    <span class="font-label-caps text-label-caps text-gold tracking-widest mb-4 block uppercase">Our
+                        Story</span>
+                    <h1
+                        class="font-display-lg md:text-display-lg text-display-lg-mobile text-on-background mb-8 leading-tight">
+                        THE HOUSE OF CAVARO</h1>
+                    <div class="border-t border-b border-gold-subtle py-6 mb-10 space-y-4">
+                        <div class="flex justify-between font-label-caps text-caption text-on-surface-variant">
+                            <span>Founded</span>
+                            <span class="text-on-background">1924</span>
+                        </div>
+                        <div class="flex justify-between font-label-caps text-caption text-on-surface-variant">
+                            <span>House</span>
+                            <span class="text-on-background">Madrid</span>
+                        </div>
+                        <div class="flex justify-between font-label-caps text-caption text-on-surface-variant">
+                            <span>Generations</span>
+                            <span class="text-on-background">Four</span>
+                        </div>
+                    </div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 font-light">Cavaro began in a
+                        single fermentation room, with one refusal: that time cannot be shortened. Four generations
+                        later the rooms are unchanged — the same cedar, the same silence, the same patience measured in
+                        years rather than seasons.</p>
+                    <button
+                        class="bg-gold text-charcoal font-label-caps text-label-caps tracking-widest px-8 py-4 uppercase hover:bg-white transition-colors duration-500 cursor-pointer"
+                        data-href="#craft">DISCOVER THE CRAFT</button>
+                </div>
+            </div>
+        </section>
+        <section class="max-w-container-max mx-auto px-gutter md:px-margin-edge py-section-gap" data-section="journal"
+            id="journal">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24">
+                <div>
+                    <h2 class="font-display-lg text-headline-md text-on-background mb-4">THE JOURNAL</h2>
+                    <p class="font-body-lg text-on-surface-variant max-w-lg">Notes from the fermentation rooms, the
+                        archive and the quiet hours between.</p>
+                </div>
+            </div>
+            <!-- 3 Column Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-24">
+                <!-- Product 1 -->
+                <div class="group flex flex-col" data-journal-entry="">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt=""
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            data-alt="Three years of stillness, and the leaf finally agrees with itself."
+                            decoding="async" loading="lazy" src="assets/img/photos/dried-leaves.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">THE SILENCE OF THE AGING ROOM
+                        </h3>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>Published</span>
+                            <span>March 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="group flex flex-col md:mt-16" data-journal-entry="">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt=""
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            data-alt="Wax, ribbon and cedar: the last three gestures before a box leaves the house."
+                            decoding="async" loading="lazy" src="assets/img/photos/box-seal-ribbon.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">ON THE ANATOMY OF A SEAL</h3>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>Published</span>
+                            <span>February 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="group flex flex-col" data-journal-entry="">
+                    <div class="relative w-full aspect-[3/4] bg-smoke mb-8 overflow-hidden">
+                        <img alt=""
+                            class="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                            data-alt="Notes on presentation, and why the box is never the point." decoding="async"
+                            loading="lazy" src="assets/img/photos/gift-box-set.png" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-headline-sm text-headline-sm text-on-background">A GIFT, PROPERLY GIVEN</h3>
+                    </div>
+                    <div class="space-y-2 mb-8 flex-grow">
+                        <div
+                            class="flex justify-between font-label-caps text-[10px] text-on-surface-variant border-b border-surface-variant pb-1">
+                            <span>Published</span>
+                            <span>January 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <!-- Product 5 -->
+                <!-- Product 6 -->
+            </div>
+        </section>
+        <section
+            class="flex-grow pt-[160px] pb-section-gap px-margin-edge flex flex-col items-center justify-center max-w-container-max mx-auto w-full"
+            data-section="contact" id="contact">
+            <!-- Header Section -->
+            <header class="text-center w-full max-w-2xl mb-24">
+                <h1
+                    class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">
+                    CONTACT</h1>
+                <h2 class="font-headline-md text-headline-md text-secondary mb-8">PRIVATE INQUIRIES</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto">
+                    Personalized support for private collectors and bespoke events.
+                </p>
+                <div class="w-12 h-[1px] bg-secondary/40 mx-auto mt-12"></div>
+            </header>
+            <!-- Form Section -->
+            <section class="w-full max-w-xl mx-auto">
+                <form action="#" class="space-y-12" data-contact-form="" method="POST">
+                    <!-- Name Field -->
+                    <div class="relative w-full group">
+                        <input
+                            class="peer w-full bg-transparent border-0 border-b border-outline-variant/60 focus:border-secondary focus:ring-0 text-on-background font-body-lg py-3 px-0 rounded-none transition-colors duration-500 placeholder-transparent"
+                            id="name" name="name" placeholder="Name" required="" type="text" />
+                        <label
+                            class="absolute left-0 top-3 font-label-caps text-label-caps tracking-widest text-on-surface-variant transition-all duration-300 origin-left pointer-events-none"
+                            for="name">NAME</label>
+                    </div>
+                    <!-- Email Field -->
+                    <div class="relative w-full group">
+                        <input
+                            class="peer w-full bg-transparent border-0 border-b border-outline-variant/60 focus:border-secondary focus:ring-0 text-on-background font-body-lg py-3 px-0 rounded-none transition-colors duration-500 placeholder-transparent"
+                            id="email" name="email" placeholder="Email" required="" type="email" />
+                        <label
+                            class="absolute left-0 top-3 font-label-caps text-label-caps tracking-widest text-on-surface-variant transition-all duration-300 origin-left pointer-events-none"
+                            for="email">EMAIL</label>
+                    </div>
+                    <!-- Inquiry Type Field -->
+                    <div class="relative w-full group">
+                        <select
+                            class="peer w-full bg-transparent border-0 border-b border-outline-variant/60 focus:border-secondary focus:ring-0 text-on-background font-body-lg py-3 px-0 rounded-none transition-colors duration-500"
+                            id="inquiry_type" name="inquiry_type" required="">
+                            <option class="bg-surface-container text-on-surface-variant hidden" disabled="" selected=""
+                                value="">Select Inquiry Type</option>
+                            <option class="bg-surface-container text-on-background" value="collector">Collector</option>
+                            <option class="bg-surface-container text-on-background" value="event">Event</option>
+                            <option class="bg-surface-container text-on-background" value="professional">Professional
+                            </option>
+                        </select>
+                        <label
+                            class="absolute left-0 -top-6 font-label-caps text-label-caps tracking-widest text-secondary transition-all duration-300 origin-left pointer-events-none"
+                            for="inquiry_type">INQUIRY TYPE</label>
+                    </div>
+                    <!-- Message Field -->
+                    <div class="relative w-full group">
+                        <textarea
+                            class="peer w-full bg-transparent border-0 border-b border-outline-variant/60 focus:border-secondary focus:ring-0 text-on-background font-body-lg py-3 px-0 rounded-none transition-colors duration-500 placeholder-transparent resize-none"
+                            id="message" name="message" placeholder="Message" required="" rows="4"></textarea>
+                        <label
+                            class="absolute left-0 top-3 font-label-caps text-label-caps tracking-widest text-on-surface-variant transition-all duration-300 origin-left pointer-events-none"
+                            for="message">MESSAGE</label>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="pt-8 flex justify-center">
+                        <button
+                            class="bg-secondary text-primary-container font-label-caps text-label-caps tracking-widest py-4 px-12 uppercase hover:bg-secondary-fixed transition-colors duration-500 rounded-none w-full md:w-auto"
+                            data-contact-submit="" type="submit">
+                            SUBMIT INQUIRY
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <!-- Locations & Details Section -->
+            <section class="mt-section-gap text-center space-y-8">
+                <div
+                    class="font-label-caps text-label-caps tracking-[0.2em] text-secondary flex items-center justify-center space-x-4">
+                    <span>LONDON</span>
+                    <span class="text-outline-variant">|</span>
+                    <span>MADRID</span>
+                    <span class="text-outline-variant">|</span>
+                    <span>GENEVA</span>
+                </div>
+                <p class="font-caption text-caption text-on-surface-variant max-w-sm mx-auto">
+                    For immediate assistance regarding high-value acquisitions or institutional partnerships, please
+                    contact our global concierge.
+                </p>
+            </section>
+        </section>
+    </main>
+    <!-- Footer Shared Component -->
+    <footer
+        class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full mt-section-gap border-t border-secondary/20">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start px-margin-edge py-gutter max-w-container-max mx-auto">
+            <!-- Brand Logo & Copyright -->
+            <div class="mb-8 md:mb-0 opacity-80 hover:opacity-100 transition-opacity flex flex-col">
+                <span class="font-display-lg text-headline-md text-on-surface tracking-tighter mb-4">CAVARO</span>
+                <span class="font-body-md text-body-md text-on-surface-variant text-[10px] tracking-widest">© 2024
+                    CAVARO LUXURY. ALL RIGHTS RESERVED.</span>
+            </div>
+            <!-- Links -->
+            <div
+                class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-12 opacity-80 hover:opacity-100 transition-opacity">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary duration-500 hover-underline-reveal text-[11px] tracking-widest uppercase"
+                    data-inert="" href="#">PRIVACY POLICY</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary duration-500 hover-underline-reveal text-[11px] tracking-widest uppercase"
+                    data-inert="" href="#">TERMS OF SERVICE</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary duration-500 hover-underline-reveal text-[11px] tracking-widest uppercase"
+                    data-inert="" href="#">SHIPPING</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary duration-500 hover-underline-reveal text-[11px] tracking-widest uppercase"
+                    data-inert="" href="#">STORES</a>
+            </div>
+        </div>
+    </footer>
+    <div class="cavaro-bag" data-bag-root="" id="bag">
+        <div class="fixed inset-0 w-full h-full object-cover opacity-30 blur-sm z-0"
+            data-alt="A moody, high-contrast editorial photograph of premium cigars resting on a dark walnut table. Subtle wisps of smoke curl in the background. The lighting is low-key, creating deep shadows and highlighting the texture of the tobacco leaves. The overall color palette features rich browns, deep blacks, and subtle antique gold highlights, matching a luxury dark mode aesthetic."
+            style='background-image: url("assets/img/photos/cinematic-bg-wisps.png")'></div>
+        <div class="fixed inset-0 bg-primary-container/80 z-40 transition-opacity duration-500 backdrop-blur-sm"
+            data-bag-close=""></div>
+        <div
+            class="fixed top-0 right-0 h-full w-full max-w-md bg-primary-container border-l border-secondary/40 shadow-2xl z-50 flex flex-col slide-in-right">
+            <!-- Header -->
+            <header class="flex justify-between items-center px-gutter py-gutter border-b border-secondary/20">
+                <h2 class="font-headline-sm text-headline-sm text-on-background uppercase tracking-wider">Your Bag</h2>
+                <button aria-label="Close Bag"
+                    class="text-on-surface-variant hover:text-secondary transition-colors duration-300 cursor-pointer"
+                    data-bag-close="">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: 'FILL' 0, 'wght' 300;">close</span>
+                </button>
+            </header>
+            <!-- Bag Contents -->
+            <div class="flex-1 overflow-y-auto px-gutter py-gutter space-y-gutter" data-bag-items="">
+                <template data-bag-item-template="">
+                    <div class="flex gap-6 pb-6 border-b border-outline-variant/20">
+                        <div class="w-24 h-32 flex-shrink-0 bg-surface-container-lowest">
+                            <img alt="" class="w-full h-full object-cover opacity-90"
+                                data-alt="A meticulously lit studio shot of a single premium Toro cigar. The cigar has a smooth, oily maduro wrapper and an elegant black and gold band. It rests vertically against a completely dark background, emphasizing its perfectly cylindrical shape and craftsmanship. High contrast, luxury aesthetic."
+                                data-item-image="" decoding="async" loading="lazy"
+                                src="assets/img/photos/cigar-vertical.png" />
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-headline-sm text-[20px] leading-[28px] text-on-background mb-1"
+                                    data-item-title="">CAVARO RESERVE</h3>
+                                <p class="font-label-caps text-label-caps text-on-surface-variant mb-1"
+                                    data-item-meta-1="">Format: Toro</p>
+                                <p class="font-label-caps text-label-caps text-on-surface-variant" data-item-meta-2="">
+                                    Origin: Dominican Republic</p>
+                            </div>
+                            <div class="flex justify-between items-end mt-4">
+                                <span class="font-body-md text-body-md text-secondary tracking-widest"
+                                    data-item-price="">$45.00</span>
+                                <button
+                                    class="font-label-caps text-label-caps text-outline hover:text-secondary transition-colors duration-300 relative group cursor-pointer"
+                                    data-item-remove="">
+                                    REMOVE
+                                    <span
+                                        class="absolute -bottom-1 left-1/2 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <!-- Footer / Subtotal -->
+            <div class="px-gutter py-8 bg-surface-container-lowest border-t border-secondary/40 flex flex-col gap-6">
+                <div class="flex justify-between items-center">
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">SUBTOTAL</span>
+                    <span class="font-headline-sm text-[20px] text-secondary" data-bag-subtotal="">$197.00</span>
+                </div>
+                <p class="font-caption text-caption text-outline text-center" data-bag-note="">Shipping &amp; taxes
+                    calculated at checkout.</p>
+                <button
+                    class="w-full py-4 border border-secondary bg-transparent hover:bg-secondary hover:text-primary-container text-on-background font-label-caps text-label-caps tracking-widest transition-all duration-500 uppercase"
+                    data-bag-checkout="">
+                    Proceed to Checkout
+                </button><button class="bag-continue" data-bag-continue="" type="button">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/catalog.js"></script>
+    <script src="assets/js/cavaro.js"></script>
+    <script src="assets/js/smoke.js"></script>
+</body>
+
+</html>
